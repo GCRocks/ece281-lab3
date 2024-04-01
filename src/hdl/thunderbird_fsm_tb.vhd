@@ -135,71 +135,72 @@ begin
                 assert w_lights_L = "111" report "lights not on properly" severity failure;
                 assert w_lights_R = "111" report "lights not on properly" severity failure;
         -- LA
-            w_left <='1'; w_right<='0'; w_reset<='0';
+            w_left <='1'; w_right<='0'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_L = "001" report "LA not on properly" severity failure;
                 assert w_lights_R = "000" report "LA not on properly" severity failure;
         --LB
-            w_left <='0'; w_right<='0'; w_reset<='0';
+            w_left <='0'; w_right<='0'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_L = "011" report "LB not on properly" severity failure;
                 assert w_lights_R = "000" report "LB not on properly" severity failure;
-            w_left <='1'; w_right<='0'; w_reset<='0';
+            w_left <='1'; w_right<='0'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_L = "011" report "LB not on properly" severity failure;
                 assert w_lights_R = "000" report "LB not on properly" severity failure;
-            w_left <='0'; w_right<='1'; w_reset<='0';
+            w_left <='0'; w_right<='1'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_L = "011" report "LB not on properly" severity failure;
                 assert w_lights_R = "000" report "LB not on properly" severity failure;
-            w_left <='1'; w_right<='1'; w_reset<='0';
+            w_left <='1'; w_right<='1'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_L = "011" report "LB not on properly" severity failure;
                 assert w_lights_R = "000" report "LB not on properly" severity failure;               
         --LC
-            w_left <='0'; w_right<='0'; w_reset<='0';
+            w_left <='0'; w_right<='0'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_L = "111" report "LC not on properly" severity failure;
                 assert w_lights_R = "000" report "LC not on properly" severity failure;
-            w_left <='1'; w_right<='0'; w_reset<='0';
+            w_left <='1'; w_right<='0'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_L = "111" report "LC not on properly" severity failure;
                 assert w_lights_R = "000" report "LC not on properly" severity failure;
-            w_left <='0'; w_right<='1'; w_reset<='0';
+            w_left <='0'; w_right<='1'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_L = "111" report "LC not on properly" severity failure;
                 assert w_lights_R = "000" report "LC not on properly" severity failure;
-            w_left <='1'; w_right<='1'; w_reset<='0';
+            w_left <='1'; w_right<='1'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_L = "111" report "LC not on properly" severity failure;
                 assert w_lights_R = "000" report "LC not on properly" severity failure; 
                 
         --RA
-            w_left <='0'; w_right<='1'; w_reset<='0';
+            w_left <='0'; w_right<='1'; w_reset<='0'; wait for k_clk_period;
                assert w_lights_R = "001" report "RA not on properly" severity failure;
                assert w_lights_L = "000" report "RA not on properly" severity failure;
         --RB
-            w_left <='0'; w_right<='0'; w_reset<='0';
+            w_left <='0'; w_right<='0'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_R = "011" report "RB not on properly" severity failure;
                 assert w_lights_L = "000" report "RB not on properly" severity failure;
-            w_left <='1'; w_right<='0'; w_reset<='0';
+            w_left <='1'; w_right<='0'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_R = "011" report "RB not on properly" severity failure;
                 assert w_lights_L = "000" report "RB not on properly" severity failure;
-            w_left <='0'; w_right<='1'; w_reset<='0';
+            w_left <='0'; w_right<='1'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_R = "011" report "RB not on properly" severity failure;
                 assert w_lights_L = "000" report "RB not on properly" severity failure;
-            w_left <='1'; w_right<='1'; w_reset<='0';
+            w_left <='1'; w_right<='1'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_R = "011" report "RB not on properly" severity failure;
                 assert w_lights_L = "000" report "RB not on properly" severity failure;        
         --RC
-            w_left <='0'; w_right<='0'; w_reset<='0';
+            w_left <='0'; w_right<='0'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_R = "111" report "RC not on properly" severity failure;
                 assert w_lights_L = "000" report "RC not on properly" severity failure;
-            w_left <='1'; w_right<='0'; w_reset<='0';
+            w_left <='1'; w_right<='0'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_R = "111" report "RC not on properly" severity failure;
                 assert w_lights_L = "000" report "RC not on properly" severity failure;
-            w_left <='0'; w_right<='1'; w_reset<='0';
+            w_left <='0'; w_right<='1'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_R = "111" report "RC not on properly" severity failure;
                 assert w_lights_L = "000" report "RC not on properly" severity failure;
-            w_left <='1'; w_right<='1'; w_reset<='0';
+            w_left <='1'; w_right<='1'; w_reset<='0'; wait for k_clk_period;
                 assert w_lights_R = "111" report "RC not on properly" severity failure;
                 assert w_lights_L = "000" report "RC not on properly" severity failure;            
         -- reset state
             w_reset <= '1';
                 wait for k_clk_period;
             w_reset <= '0';
-              assert w_stoplight = "000" report "bad reset" severity failure;
+              assert w_lights_R = "000" report "bad reset" severity failure;
+              assert w_lights_L = "000" report "bad reset" severity failure;
         
             wait;
         end process;
